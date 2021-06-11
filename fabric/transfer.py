@@ -172,7 +172,11 @@ class Transfer:
         if is_file_like:
             self.sftp.getfo(remotepath=remote, fl=local, callback=callback)
         else:
-            self.sftp.get(remotepath=remote, localpath=local, callback=callback)
+            self.sftp.get(
+                remotepath=remote,
+                localpath=local,
+                callback=callback,
+            )
             # Set mode to same as remote end
             # TODO: Push this down into SFTPClient sometime (requires backwards
             # incompat release.)
@@ -315,7 +319,11 @@ class Transfer:
                 local.seek(pointer)
         else:
             debug("Uploading {!r} to {!r}".format(local, remote))
-            self.sftp.put(localpath=local, remotepath=remote, callback=callback)
+            self.sftp.put(
+                localpath=local,
+                remotepath=remote,
+                callback=callback,
+            )
             # Set mode to same as local end
             # TODO: Push this down into SFTPClient sometime (requires backwards
             # incompat release.)
