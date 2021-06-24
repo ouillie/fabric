@@ -13,7 +13,7 @@ Changelog
     names in this paragraph to visit their changelogs and see what you might get
     if you upgrade your dependencies.
 
-- :feature:`-` Added parmiko's callback parameters for sftp get and put
+- :feature:`-` Added paramiko's callback parameters for sftp get and put
    operations, allowing to get progress information.
 - :release:`3.2.2 <2023-08-30>`
 - :bug:`2204` The signal handling functionality added in Fabric 2.6 caused
