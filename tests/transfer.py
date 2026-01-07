@@ -49,7 +49,8 @@ class Transfer_:
                 transfer.get("file")
                 client.get.assert_called_with(
                     callback=None,
-                    localpath="/local/file", remotepath="/remote/file"
+                    localpath="/local/file",
+                    remotepath="/remote/file",
                 )
 
             def accepts_local_and_remote_kwargs(self, sftp_objs):
@@ -57,7 +58,8 @@ class Transfer_:
                 transfer.get(remote="path1", local="path2")
                 client.get.assert_called_with(
                     callback=None,
-                    remotepath="/remote/path1", localpath="/local/path2"
+                    remotepath="/remote/path1",
+                    localpath="/local/path2",
                 )
 
             def returns_rich_Result_object(self, sftp_objs):
@@ -118,8 +120,7 @@ class Transfer_:
                 result = transfer.get("file", local=fd)
                 # Note: getfo, not get
                 client.getfo.assert_called_with(
-                    callback=None,
-                    remotepath="/remote/file", fl=fd
+                    callback=None, remotepath="/remote/file", fl=fd
                 )
                 return result, fd
 
@@ -189,7 +190,8 @@ class Transfer_:
                 transfer.put("file")
                 client.put.assert_called_with(
                     callback=None,
-                    localpath="/local/file", remotepath="/remote/file"
+                    localpath="/local/file",
+                    remotepath="/remote/file",
                 )
 
             def accepts_local_and_remote_kwargs(self, sftp_objs):
@@ -198,7 +200,8 @@ class Transfer_:
                 transfer.put(local="path2", remote="path1")
                 sftp.put.assert_called_with(
                     callback=None,
-                    localpath="/local/path2", remotepath="/remote/path1"
+                    localpath="/local/path2",
+                    remotepath="/remote/path1",
                 )
 
             def returns_rich_Result_object(self, transfer):
@@ -234,8 +237,7 @@ class Transfer_:
                     local.name = "sup.txt"
                     xfer.put(local, remote="/dir/path")
                     sftp.putfo.assert_called_with(
-                        callback=None,
-                        fl=local, remotepath="/dir/path/sup.txt"
+                        callback=None, fl=local, remotepath="/dir/path/sup.txt"
                     )
 
                 @raises(ValueError)
@@ -277,8 +279,7 @@ class Transfer_:
                 result = transfer.put(fd, remote="file")
                 # Note: putfo, not put
                 client.putfo.assert_called_with(
-                    callback=None,
-                    remotepath="/remote/file", fl=fd
+                    callback=None, remotepath="/remote/file", fl=fd
                 )
                 return result, fd
 
