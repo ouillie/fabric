@@ -2,7 +2,7 @@ import os
 import stat
 from io import BytesIO
 
-from mock import Mock
+from unittest.mock import Mock
 from py import path
 
 from fabric import Connection
